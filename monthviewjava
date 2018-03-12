@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+//for random input text display monthview show
+public class MonthView {
+	Scanner input = new Scanner(System.in);
+	String text = input.nextLine();
+
+	public String toString() {
+		return text;
+	}
+
+	public void monthview() {
+		int count1, count2;
+		int format1 = 6;
+		int format2 = 6;
+		String[][] niz = new String[format1][1]; // 2d array initialized ,format stacked
+		for (count1 = 0; count1 < format1; count1++) {
+			for (count2 = 0; count2 < 1; count2++) {
+				if (count1 == 0) {
+					niz[count1][count2] = text.substring(0, format2);
+				} else {
+					if (count1 == 1) {
+						niz[count1][count2] = " " + text.substring(format2, format2 + format2 - 1);
+					} else {
+						niz[count1][count2] = " "
+								+ text.substring(count1 * format2 - 1, count1 * format2 + format2 - 1);
+					}
+
+				}
+				System.out.print(niz[count1][count2]);
+
+			}
+			System.out.println();
+		}
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MonthView mv = new MonthView();
+		mv.monthview();
+	}
+
+}
